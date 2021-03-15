@@ -4,7 +4,7 @@ PROJECT=avocado
 deb-prepare-source:
 	# build the source package in the parent directory
 	# then rename it to project_version.orig.tar.gz
-	dch -D "vivid" -M -v "$(VERSION)" "Automated (make builddeb) build."
+	dch -D "vivid" -v "$(VERSION)" "Automated (make builddeb) build."
 	$(PYTHON) setup.py sdist $(COMPILE) --dist-dir=../
 	rename -f 's/$(PROJECT)-(.*)\.tar\.gz/$(PROJECT)_$$1\.orig\.tar\.gz/' ../*
 
@@ -18,4 +18,4 @@ deb-bin: deb-prepare-source
 
 deb: deb-prepare-source
 	# build both source and binary packages
-	dpkg-buildpackage -i -I -rfakeroot
+	dpkg-buildpackage -i -I -us -uc -rfakeroot
