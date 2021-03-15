@@ -45,8 +45,14 @@ all:
 	@echo "rpm-release:        Generate binary RPMs for the latest tagged release"
 	@echo "propagate-version:  Propagate './VERSION' to all plugins/modules"
 	@echo
+	@echo "Debian related targets:"
+	@echo "deb:      Generate both source and binary debian packages"
+	@echo "deb-src:  Generate a source debian package"
+	@echo "deb-bin:  Generate a binary debian package"
+	@echo
 
 include Makefile.include
+include debian/Makefile
 
 source-pypi: clean
 	if test ! -d PYPI_UPLOAD; then mkdir PYPI_UPLOAD; fi

@@ -1,14 +1,6 @@
 BUILDIR=$(CURDIR)/debian/avocado
 PROJECT=avocado
 
-all:
-	@echo
-	@echo "Debian related targets:"
-	@echo "deb:      Generate both source and binary debian packages"
-	@echo "deb-src:  Generate a source debian package"
-	@echo "deb-bin:  Generate a binary debian package"
-	@echo
-
 deb-prepare-source:
 	# build the source package in the parent directory
 	# then rename it to project_version.orig.tar.gz
